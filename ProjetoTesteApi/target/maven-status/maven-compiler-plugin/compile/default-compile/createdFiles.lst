@@ -1,0 +1,17 @@
+br\com\apiteste\dao\CompeticaoDao.class
+br\com\apiteste\entity\Competicao.class
+br\com\apiteste\controller\LocalController.class
+br\com\apiteste\controller\ModalidadeController.class
+br\com\apiteste\entity\Etapa.class
+br\com\apiteste\controller\EtapaController.class
+br\com\apiteste\App.class
+br\com\apiteste\dao\EtapaDao.class
+br\com\apiteste\dao\LocalDao.class
+br\com\apiteste\service\CompeticaoService.class
+br\com\apiteste\dao\ModalidadeDao.class
+br\com\apiteste\dao\PaisDao.class
+br\com\apiteste\entity\Modalidade.class
+br\com\apiteste\entity\Local.class
+br\com\apiteste\entity\Pais.class
+br\com\apiteste\controller\CompeticaoController.class
+br\com\apiteste\controller\PaisController.class
