@@ -92,19 +92,4 @@ public class Competicao {
 		this.idLocal = idLocal;
 	}
 
-//	public Etapa getIdEtapa() {
-//		return idEtapa;
-//	}
-//
-//	public void setIdEtapa(Etapa idEtapa) {
-//		this.idEtapa = idEtapa;
-//	}
-//
-//	public Local getIdLocal() {
-//		return idLocal;
-//	}
-//
-//	public void setIdLocal(Local idLocal) {
-//		this.idLocal = idLocal;
-//	}
 }
