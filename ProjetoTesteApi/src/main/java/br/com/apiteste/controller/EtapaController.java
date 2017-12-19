@@ -40,9 +40,39 @@ public class EtapaController {
                                  }
 		catch (Exception ex) {
 			return "Erro ao deletar etapa: " + ex.toString();
-        }
+         }
         	return "Etapa deletado com sucesso!";
-    }
+       }
+	@RequestMapping(value="/updateEtapa")
+	@ResponseBody
+	public String updateEtapa(@RequestBody Etapa etapa) {
+	     try {
+	        etapaDao.update(etapa);
+	     }
+	     catch (Exception ex) {
+	       	return "Erro ao fazer updating do: " + ex.toString();
+	     }
+	        return "Etapa atualizado com sucesso!";
+	     } 
+	 
+	@RequestMapping("/get-etapa")
+   	@ResponseBody
+    	public Etapa getId(long id) throws Exception {
+   	 
+		 try {
+       	 Etapa etapa = etapaDao.getId(id);
+       	 
+       	 if(etapa == null){
+       		 throw new Exception("Não existe");
+       	 }
+       	         	 
+       	 return etapa;
+        }
+        catch (Exception e) {
+       	 throw new Exception("Erro ao consultar etapa");
+        }
+        
+	}
 	
 	
 	@Autowired
