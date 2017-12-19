@@ -43,6 +43,36 @@ public class PaisController {
         }
         	return "País deletado com sucesso!";
     }
+	@RequestMapping(value="/updatePais")
+	@ResponseBody
+	public String updatePais(@RequestBody Pais pais) {
+	     try {
+	        paisDao.update(pais);
+	     }
+	     catch (Exception ex) {
+	       	return "Erro ao fazer updating do: " + ex.toString();
+	     }
+	        return "País atualizado com sucesso!";
+	     } 
+	 
+	@RequestMapping("/get-pais")
+  	@ResponseBody
+        public Pais getId(long id) throws Exception {
+   	 
+	 try {
+       	     Pais pais = paisDao.getId(id);
+       	 
+       	 if(pais == null){
+       		 throw new Exception("Não existe");
+       	 }
+       	         	 
+       	 return pais;
+        }
+        catch (Exception e) {
+       	 throw new Exception("Erro ao consultar país");
+        }
+        
+	 }
 	
 
     @Autowired
