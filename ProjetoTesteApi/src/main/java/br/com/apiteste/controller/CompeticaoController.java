@@ -18,7 +18,7 @@ public class CompeticaoController {
 
 	@RequestMapping(value="/createCompeticao")
 	@ResponseBody
-	public String createPais(@RequestBody Competicao competicao){
+	public String createCompeticao(@RequestBody Competicao competicao){
 		
 		try {
 			
@@ -35,7 +35,7 @@ public class CompeticaoController {
 	
 	@RequestMapping(value="/deleteCompeticao")
 	@ResponseBody
-	public String deletePais(long id) {
+	public String deleteCompeticao(long id) {
 		try {
 			Competicao competicao = new Competicao();
 			competicao.setId(id);
