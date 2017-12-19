@@ -43,6 +43,36 @@ public class LocalController {
         	return "Modalidade deletado com sucesso!";
     }
 	
+	@RequestMapping(value="/updateLocal")
+	@ResponseBody
+	public String updateLocal(@RequestBody Local local) {
+	     try {
+	        localDao.update(local);
+	     }
+	     catch (Exception ex) {
+	       	return "Erro ao fazer updating do: " + ex.toString();
+	     }
+	        return "Local atualizado com sucesso!";
+	     } 
+	 
+	@RequestMapping("/get-local")
+    	@ResponseBody
+    	public Local getId(long id) throws Exception {
+   	 
+		try {
+       	 		Local local = localDao.getId(id);
+       	 
+       	 	if(local == null){
+       		      throw new Exception("Não existe");
+       	 	}
+       	         	 
+       	 return local;
+        }
+        catch (Exception e) {
+       	 throw new Exception("Erro ao consultar local");
+        }
+        
+	 }
 
     @Autowired
     private LocalDao localDao;
