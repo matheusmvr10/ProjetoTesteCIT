@@ -45,7 +45,37 @@ public class CompeticaoController {
 			return "Erro ao deletar país: " + ex.toString();
         }
         	return "País deletado com sucesso!";
-    }
+       }
+	@RequestMapping(value="/updateCompeticao")
+	@ResponseBody
+	 public String updateCompeticao(@RequestBody Competicao competicao) {
+	     try {
+	        competicaoDao.update(competicao);
+	     }
+	     catch (Exception ex) {
+	       	return "Erro ao fazer updating do: " + ex.toString();
+	     }
+	        return "Competição atualizado com sucesso!";
+	     } 
+	 
+     @RequestMapping("/get-competicao")
+     @ResponseBody
+     public Competicao getId(long id) throws Exception {
+    	 
+		 try {
+        	 Competicao competicao = competicaoDao.getId(id);
+        	 
+        	 if(competicao == null){
+        		 throw new Exception("Não existe");
+        	 }
+        	         	 
+        	 return competicao;
+         }
+         catch (Exception e) {
+        	 throw new Exception("Erro ao consultar competição");
+         }
+         
+	 }
 	
 	@Autowired
 	CompeticaoDao competicaoDao;
