@@ -44,6 +44,37 @@ public class ModalidadeController {
         	return "Modalidade deletado com sucesso!";
     }
 	
+	@RequestMapping(value="/updateModalidade")
+	@ResponseBody
+	public String updateModalidade(@RequestBody Modalidade modalidade) {
+	     try {
+	        modalidadeDao.update(modalidade);
+	     }
+	     catch (Exception ex) {
+	       	return "Erro ao fazer updating do: " + ex.toString();
+	     }
+	        return "Modalidade atualizado com sucesso!";
+	     } 
+	 
+	@RequestMapping("/get-modalidade")
+   	@ResponseBody
+   	public Modalidade getId(long id) throws Exception {
+   	 
+		 try {
+       	 Modalidade modalidade = modalidadeDao.getId(id);
+       	 
+       	 if(modalidade == null){
+       		 throw new Exception("Não existe");
+       	 }
+       	         	 
+       	 return modalidade;
+        }
+        catch (Exception e) {
+       	 throw new Exception("Erro ao consultar modalidade");
+        }
+        
+	 }
+	
 
     @Autowired
     private ModalidadeDao modalidadeDao;
